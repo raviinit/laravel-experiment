@@ -10,7 +10,7 @@
     "license": "GPL-3.0",
     "require": {
         "php": ">=5.4.0",
-        "illuminate/support": "~5.2"
+        "illuminate/support": "~5.2",
         "reportico-web/reportico": "dev-new-architecture-twig"
     },
     "autoload": {
