@@ -4,6 +4,8 @@ use Illuminate\Support\ServiceProvider;
 use Illuminate\View\View;
 use Illuminate\Auth\Guard;
 
+define("REPORTICO_SESSION_CLASS", "Reportico\Laravel\ReporticoSession");
+
 class ReporticoServiceProvider extends ServiceProvider {
 
     public $engine;
@@ -29,6 +31,8 @@ class ReporticoServiceProvider extends ServiceProvider {
                 ]);
         $this->publishes([
                 __DIR__.'/assets' => public_path('vendor/reportico'),
+                __DIR__.'/../../../../../reportico-web/reportico/views' => public_path('vendor/reportico')."/views",
+                __DIR__.'/../../../../../reportico-web/reportico/templates' => public_path('vendor/reportico')."/templates",
             ], 'public');
 
         //\Route::group(['middleware' => ['web','auth']], function() {
@@ -129,7 +133,7 @@ class ReporticoServiceProvider extends ServiceProvider {
 
         $this->app->singleton('getReporticoEngine', function($app)
         {
-            $this->engine = new reportico();
+            $this->engine = new \Reportico\Engine\Reportico();
 
             $this->engine->reportico_ajax_script_url = $_SERVER["SCRIPT_NAME"]."/reportico/ajax";
             $this->engine->forward_url_get_parameters = false;
@@ -148,7 +152,11 @@ class ReporticoServiceProvider extends ServiceProvider {
             else
                 $this->engine->external_user = false;
             $this->engine->url_path_to_assets = $this->app["url"]->asset(config("reportico.path_to_assets"));
+            $this->engine->url_path_to_templates = $this->app["url"]->asset(config("reportico.path_to_assets"))."/views";
 
+            // Static Menu definition
+            // ======================
+            $this->engine->theme = config("reportico.theme");
             
             // Where to store reportco projects
             $this->engine->projects_folder = config("reportico.path_to_projects");
