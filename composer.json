@@ -19,7 +19,6 @@
             "src/controllers"
         ],
         "files": [
-            "src/Reportico/Laravel/ReporticoLaravelSession.php",
             "src/Reportico/Laravel/ReporticoSession.php"
         ],
         "psr-0": {
