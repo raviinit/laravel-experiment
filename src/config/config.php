@@ -40,12 +40,13 @@
 
     // Engine to use for charts .. 
     // HTML reports can use javascript charting, PDF reports must use PCHART
-    'charting_engine' => "PCHART",
+    'charting_engine' => "NVD3",
     'charting_engine_html' => "NVD3",
 
     // Engine to use for pdf .. 
     // fpdf is faster but tcpdf offers borders, backgorunds, images, headers footers etc
     'pdf_engine' => "phantomjs",
+    'pdf_delivery_mode' => "DOWNLOAD_SAME_WINDOW",
 
     // Whether to turn on dynamic grids to provide searchable/sortable reports
     'dynamic_grids' => false,

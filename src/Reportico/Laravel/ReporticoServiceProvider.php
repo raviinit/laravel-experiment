@@ -190,6 +190,8 @@ class ReporticoServiceProvider extends ServiceProvider {
 
             // Engine to use for PDF reports .. 
             $this->engine->pdf_engine = config("reportico.pdf_engine");
+            $this->engine->pdf_phantomjs_path = base_path("vendor/bin/phantomjs");
+            $this->engine->pdf_delivery_mode = config("reportico.pdf_delivery_mode");
 
             // Whether to turn on dynamic grids to provide searchable/sortable reports
             $this->engine->dynamic_grids = config("reportico.dynamic_grids");
