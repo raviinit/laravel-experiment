@@ -11,7 +11,7 @@
     "require": {
         "php": ">=5.4.0",
         "illuminate/support": "~5.2",
-        "reportico-web/reportico": "dev-new-architecture-twig"
+        "reportico/reportico": "dev-new-architecture-twig"
     },
     "autoload": {
         "classmap": [
@@ -25,7 +25,7 @@
             "Reportico\\Laravel\\": "src/"
         },
         "psr-4": {
-            "Reportico\\Engine\\": "reportico-web/reportico/src"
+            "Reportico\\Engine\\": "reportico/reportico/src"
         }
     },
     "minimum-stability": "dev",
